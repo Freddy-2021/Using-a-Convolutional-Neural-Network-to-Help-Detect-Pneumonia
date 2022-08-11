@@ -17,10 +17,16 @@ We have a set of x-rays from both healthy patients, and ones with pneumonia. The
 
 ## Business Problem
 ***
-In the United States about 1.5 million people were diagnosed with pneumonia in an emergency room, in 2018, and around 40,000 people died of pneumonia in that same year. Pneumonia is the world’s leading cause of death among children under 5 years of age, killing approximately 2,400 children a day in 2015. These facts underlie the importance, of not only a correct diagnosis, but a timely one. Now, with the introduction of COVID-19, and it's role as a precursor to pneumonia, the need for a cost effective, non-invasive diagnostic tool is even greater. A model that could correctly identify an x-ray as one of someone with pneumonia, would serve as a cost effective non-invasive tool, that could be used to prioritize which patients the doctor should see first.
+<b>Stakeholder:</b> Board of directors of a national network of hospitals.
 
-https://www.cdc.gov/dotw/pneumonia/index.html<br>
-https://www.thoracic.org/patients/patient-resources/resources/top-pneumonia-facts.pdf
+<b>Business Problem:</b> Covid has caused a surge in emergency room visits. The hospital is looking for a way to better prioritize paients by the severity of their ailments, particularly pulmonary diseases.
+
+<b>Proposed Solution:</b> A machine learning model that could distinguish between the xray image of a healthy patient, and of one with pneumonia, thereby helping prioritize who the doctor will see first.
+
+<b>Solution Benefits:</b>  <ol>1. Helps save lives, and protect from more severe damage caused by the disease.<br>
+                           2. non-invasive<br> 
+                           3. cost-seffective<br>
+                           4. no medical background necesary to run the model</ol>
 
 ## Data Understanding
 ***
@@ -64,8 +70,22 @@ View an example of an x-ray of a healthy patient, and one with pneumonia.<br>
 
 Six models were built all together. One ANN as a baseline model, and another five CNN(s). Below is a summary of the results. The datframe pictured is sorted by auc score. The model with the highest auc score is the model with the best bias-variance balance, and therefore the best model. In this case the best model is cnn_model_5, with a test score of 0.943038, and a train-test difference of 0.023813.<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![example](images/nn_models_df.png)
+<br><br>
 
-# Best Model Confusion Matrix:
+# Best Model Classification Report and Confusion Matrix:
+## Best Model Classification Report:
+<br>
+The table below is the classification report for the 'Best Model' (cnn_model_5), based on predictions of the test data set. Some take-aways from the report:
+
+1. My primary concern was with the ability of the model to correctly identify patients with pneumonia, followed by the accuracy score. Row 2, column 2 of the report confirms my initial evaluation with a recall of 94%, while still maintaining an accuracy of 95%. Although 100% is always the goal, I would consider these both great scores. 
+
+2. In addition to this, we can see that both the precision, and f1-score metrics have very good scores of 89%, and 92%
+   respectively.
+<br><br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![example](images/classification_report.png)
+<br><br>
+
+## Best Model Confusion Matrix:
 I created a confusion matrix plot for the presentation, as well as an easy way to calculate the accuracy score. With 559 0ut of 586 images correctly classified, this model has an accuracy score of over 95%.
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![example](images/conf_matrix.png)
@@ -73,10 +93,8 @@ I created a confusion matrix plot for the presentation, as well as an easy way t
 
 # Project Conclusion: Possible Further Steps
 
-Run the model on a larger dataset<br>
-Run the model on a balanced datset<br>
-Use SMOTE or an image generator to attempt to balance the training data<br>
-Create a custom metric that would take into account both precision and accuracy, but give priority to precision<br>
+1. Request funding for a larger dataset to further calibrate the model
+2. Once the model is ready, we can implement it in a subset of emergency rooms, use the feedback to make more changes if necessary, and then expand its use from there.
 
 
 ## For More Information
