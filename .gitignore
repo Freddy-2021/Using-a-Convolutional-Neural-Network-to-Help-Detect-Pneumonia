@@ -1,1 +1,4 @@
 chest_xray/
+all_normal/
+all_pneumonia/
+train_test_val/
