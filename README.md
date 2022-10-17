@@ -2,7 +2,7 @@
 
 
 
-# Phase 4 Project
+# Using a Convolutional Neural Network to Help Detect Pneumonia
 
 **Author:** Freddy Abrahamson<br>
 **Date created:** 7-1-2022<br>
